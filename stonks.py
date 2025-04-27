@@ -5,10 +5,12 @@ import datetime
 import json
 import os
 
+# Имитация браузера
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
 
+# Основная структура где будет хранится инф.
 class Company:
     def __init__(self, name, ticker, price_rub, PE, year_stonks, year_result_percent):
         self.name = name  # Название компании
@@ -17,7 +19,8 @@ class Company:
         self.PE = PE  # Коэффициент 
         self.year_stonks = year_stonks  # Акции
         self.year_result_percent = year_result_percent  # Процент прибыли за год
-print("1")        
+print("1")    
+
 # Функция для получения текущего курса доллара
 def get_usd_rate():
     formatted_date = datetime.datetime.now().strftime('%d/%m/%Y')
