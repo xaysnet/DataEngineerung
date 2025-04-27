@@ -1,0 +1,52 @@
+[
+  {
+    "code": "AIG",
+    "name": "American International Group",
+    "growth": "8.91%"
+  },
+  {
+    "code": "AXP",
+    "name": "American Express",
+    "growth": "8.79%"
+  },
+  {
+    "code": "AIZ",
+    "name": "Assurant",
+    "growth": "7.92%"
+  },
+  {
+    "code": "T",
+    "name": "AT&T",
+    "growth": "61.75%"
+  },
+  {
+    "code": "ABBV",
+    "name": "AbbVie",
+    "growth": "5.51%"
+  },
+  {
+    "code": "AMCR",
+    "name": "Amcor",
+    "growth": "5.08%"
+  },
+  {
+    "code": "MMM",
+    "name": "3M",
+    "growth": "47.86%"
+  },
+  {
+    "code": "AJG",
+    "name": "Arthur J. Gallagher",
+    "growth": "40.11%"
+  },
+  {
+    "code": "MO",
+    "name": "Altria",
+    "growth": "36.44%"
+  },
+  {
+    "code": "ATO",
+    "name": "Atmos Energy",
+    "growth": "34.49%"
+  }
+]

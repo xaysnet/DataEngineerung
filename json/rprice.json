@@ -1,0 +1,52 @@
+[
+  {
+    "code": "AMP",
+    "name": "Ameriprise Financial",
+    "price": 38512.22
+  },
+  {
+    "code": "ADBE",
+    "name": "Adobe",
+    "price": 30393.86
+  },
+  {
+    "code": "AON",
+    "name": "Aon",
+    "price": 27759.65
+  },
+  {
+    "code": "AJG",
+    "name": "Arthur J. Gallagher",
+    "price": 26639.67
+  },
+  {
+    "code": "ANSS",
+    "name": "ANSYS",
+    "price": 26505.77
+  },
+  {
+    "code": "ACN",
+    "name": "Accenture",
+    "price": 24250.12
+  },
+  {
+    "code": "AMGN",
+    "name": "Amgen",
+    "price": 23212.8
+  },
+  {
+    "code": "ADSK",
+    "name": "Autodesk",
+    "price": 22311.04
+  },
+  {
+    "code": "APD",
+    "name": "Air Products and Chemicals",
+    "price": 22077.95
+  },
+  {
+    "code": "AXP",
+    "name": "American Express",
+    "price": 21887.84
+  }
+]

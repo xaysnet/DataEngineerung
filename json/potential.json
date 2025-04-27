@@ -1,0 +1,52 @@
+[
+  {
+    "code": "AON",
+    "name": "Aon",
+    "potential profit": 6.47
+  },
+  {
+    "code": "ABBV",
+    "name": "AbbVie",
+    "potential profit": 4.46
+  },
+  {
+    "code": "AMD",
+    "name": "AMD",
+    "potential profit": 4.33
+  },
+  {
+    "code": "AJG",
+    "name": "Arthur J. Gallagher",
+    "potential profit": 4.04
+  },
+  {
+    "code": "T",
+    "name": "AT&T",
+    "potential profit": 3.27
+  },
+  {
+    "code": "APA",
+    "name": "APA Corporation Registered Shs",
+    "potential profit": 3.03
+  },
+  {
+    "code": "GOOGL",
+    "name": "Alphabet A",
+    "potential profit": 3.01
+  },
+  {
+    "code": "APH",
+    "name": "Amphenol",
+    "potential profit": 3.01
+  },
+  {
+    "code": "GOOG",
+    "name": "Alphabet C",
+    "potential profit": 2.97
+  },
+  {
+    "code": "AMAT",
+    "name": "Applied Materials",
+    "potential profit": 2.89
+  }
+]
