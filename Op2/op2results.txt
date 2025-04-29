@@ -1,0 +1,4 @@
+Learn OOP:
+  Sokolov Lev -> I have done this hw
+Read documentation:
+  Sokolov Lev -> I have done this hw too
