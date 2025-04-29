@@ -1,0 +1,180 @@
+PS C:\Users\xays> docker run -d --name clickhouse-server -p 8123:8123 -p 9000:9000 yandex/clickhouse-server
+docker: Error response from daemon: Conflict. The container name "/clickhouse-server" is already in use by container "0dd95bf976f3a697a30133795beadec17f7bed303e1df4d5d2ab394503f26ad8". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS C:\Users\xays> docker run -d --name clickhouse-server -p 8123:8123 -p 9000:9000 yandex/clickhouse-server
+docker: Error response from daemon: Conflict. The container name "/clickhouse-server" is already in use by container "0dd95bf976f3a697a30133795beadec17f7bed303e1df4d5d2ab394503f26ad8". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS C:\Users\xays> docker run -d --name clickhouse-server -p 8123:8123 -p 9000:9000 yandex/clickhouse-server
+eefaa84d30a091e4629e15e1a7435d5699ca096874aee7afe432804698a8d6d5
+PS C:\Users\xays> docker pc
+docker: 'pc' is not a docker command.
+See 'docker --help'
+PS C:\Users\xays> docker ps
+CONTAINER ID   IMAGE                      COMMAND            CREATED          STATUS          PORTS                                                      NAMES
+eefaa84d30a0   yandex/clickhouse-server   "/entrypoint.sh"   28 seconds ago   Up 28 seconds   0.0.0.0:8123->8123/tcp, 0.0.0.0:9000->9000/tcp, 9009/tcp   clickhouse-server
+PS C:\Users\xays> docker exec -it clickhouse-server clickhouse-client
+ClickHouse client version 22.1.3.7 (official build).
+Connecting to localhost:9000 as user default.
+Connected to ClickHouse server version 22.1.3 revision 54455.
+
+eefaa84d30a0 :) CREATE TABLE  messages
+                (
+                    export_timestamp Datetime,
+                    id UInt32,
+                    message String
+                ) ENGINE = ReplacingMergeTree(id)
+                ORDER BY id;
+
+CREATE TABLE messages
+(
+    export_timestamp Datetime,
+    id UInt32,
+    message String
+)
+ENGINE = ReplacingMergeTree(id)
+ORDER BY id
+
+Query id: 69539bbb-8e59-4219-a956-71d6e3bcea48
+
+Ok.
+
+0 rows in set. Elapsed: 0.008 sec.
+
+eefaa84d30a0 :) SHOW TABLES;
+
+SHOW TABLES
+
+Query id: 971af892-9330-46b1-848b-0fd547301318
+
+┌─name─────┐
+│ messages │
+└──────────┘
+
+1 rows in set. Elapsed: 0.002 sec.
+
+eefaa84d30a0 :) exit
+Bye.
+PS C:\Users\xays>
+                  docker-compose up -d
+no configuration file provided: not found
+PS C:\Users\xays> docker-compose up -d
+no configuration file provided: not found
+PS C:\Users\xays> docker-compose -f C:\2\1.yml up -d
+open C:\2\1.yml: The system cannot find the file specified.
+PS C:\Users\xays> docker-compose -f C:\2\1.xml up -d
+time="2025-04-29T14:35:17+10:00" level=warning msg="C:\\2\\1.xml: the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 2/2
+ ✔ Network 2_default    Created                                                                                                                        0.0s
+ ✔ Container 2-redis-1  Started                                                                                                                        0.4s
+PS C:\Users\xays>  docker exec -it <mysql_container_id> mysql -u root -p
+строка:1 знак:18
++  docker exec -it <mysql_container_id> mysql -u root -p
++                  ~
+Оператор "<" зарезервирован для использования в будущем.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : RedirectionNotSupported
+
+PS C:\Users\xays> docker exec -it <mysql_container_id> mysql -u root -p
+строка:1 знак:17
++ docker exec -it <mysql_container_id> mysql -u root -p
++                 ~
+Оператор "<" зарезервирован для использования в будущем.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : RedirectionNotSupported
+
+PS C:\Users\xays> docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS
+   NAMES
+009fc0236b00   redis:latest               "docker-entrypoint.s…"   2 minutes ago    Up 2 minutes    0.0.0.0:6379->6379/tcp
+   2-redis-1
+eefaa84d30a0   yandex/clickhouse-server   "/entrypoint.sh"         32 minutes ago   Up 32 minutes   0.0.0.0:8123->8123/tcp, 0.0.0.0:9000->9000/tcp, 9009/tcp   clickhouse-server
+PS C:\Users\xays> docker-compose -f C:\2\2.txt up -d
+time="2025-04-29T14:43:54+10:00" level=warning msg="C:\\2\\2.txt: the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 1/2
+ - Container 2-mysql-1  Starting                                                                                                                       0.1s
+ ✔ Container 2-redis-1  Running                                                                                                                        0.0s
+Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -> 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+PS C:\Users\xays> docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS
+   NAMES
+009fc0236b00   redis:latest               "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    0.0.0.0:6379->6379/tcp
+   2-redis-1
+eefaa84d30a0   yandex/clickhouse-server   "/entrypoint.sh"         38 minutes ago   Up 38 minutes   0.0.0.0:8123->8123/tcp, 0.0.0.0:9000->9000/tcp, 9009/tcp   clickhouse-server
+PS C:\Users\xays> docker-compose up -d
+no configuration file provided: not found
+PS C:\Users\xays> docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS
+   NAMES
+009fc0236b00   redis:latest               "docker-entrypoint.s…"   9 minutes ago    Up 9 minutes    0.0.0.0:6379->6379/tcp
+   2-redis-1
+eefaa84d30a0   yandex/clickhouse-server   "/entrypoint.sh"         38 minutes ago   Up 38 minutes   0.0.0.0:8123->8123/tcp, 0.0.0.0:9000->9000/tcp, 9009/tcp   clickhouse-server
+PS C:\Users\xays> docker exec -it eefaa84d30a0 mysql -u root -p
+OCI runtime exec failed: exec failed: unable to start container process: exec: "mysql": executable file not found in $PATH: unknown
+PS C:\Users\xays> docker exec -it 009fc0236b00 mysql -u root -p
+OCI runtime exec failed: exec failed: unable to start container process: exec: "mysql": executable file not found in $PATH: unknown
+PS C:\Users\xays> docker exec -it mydatabase mysql -u root -p
+Error response from daemon: No such container: mydatabase
+PS C:\Users\xays> docker exec -it mydatabase mysql -u root -p
+Error response from daemon: No such container: mydatabase
+PS C:\Users\xays> docker exec -it 5d3494381e4161e266b4ef3fb0fdcddd9769764d312cfb771a61d4bcda1f4354 mysql -u root -p
+Error response from daemon: container 5d3494381e4161e266b4ef3fb0fdcddd9769764d312cfb771a61d4bcda1f4354 is not running
+PS C:\Users\xays> docker-compose -f C:\2\2.txt up -d
+time="2025-04-29T14:50:13+10:00" level=warning msg="C:\\2\\2.txt: the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 2/2
+ ✔ Container 2-mysql-1  Started                                                                                                                        0.4s
+ ✔ Container 2-redis-1  Running                                                                                                                        0.0s
+PS C:\Users\xays> docker exec -it mysql-1 mysql -u root -p
+Error response from daemon: No such container: mysql-1
+PS C:\Users\xays> docker exec -it 2-mysql-1 mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+PS C:\Users\xays> docker exec -it 2-mysql-1 mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 9.2.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE TABLE messages (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     message VARCHAR(255)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> use 2-mysql-1
+ERROR 1049 (42000): Unknown database '2-mysql-1'
+mysql> show tables
+    ->
+    -> 1
+    -> $
+    -> stop
+    ->
+    ->
+    ->
+    ->
+    -> ^C
+mysql> show tables;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydatabase         |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use mydatabase
+Database changed
+mysql> CREATE TABLE messages (     id INT AUTO_INCREMENT PRIMARY KEY,     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,     message VARCHAR(255) );
+Query OK, 0 rows affected (0.03 sec)
