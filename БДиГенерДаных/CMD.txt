@@ -1,0 +1,42 @@
+CREATE TABLE User (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    DateNew DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Name VARCHAR(255),
+    Password VARCHAR(255)
+);
+
+CREATE TABLE Topic (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idUser INT,
+    Name VARCHAR(255),
+    Description TEXT,
+    FOREIGN KEY (idUser) REFERENCES User(id)
+);
+
+CREATE TABLE Messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idUser INT,
+    idTopic INT,
+    Name VARCHAR(255),
+    GuestBoolean BOOLEAN,
+    FOREIGN KEY (idUser) REFERENCES User(id),
+    FOREIGN KEY (idTopic) REFERENCES Topic(id)
+);
+
+CREATE TABLE LogUser (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    dateOpenTopic DATETIME DEFAULT CURRENT_TIMESTAMP,
+    idTopic INT,
+    idUser INT,
+    FOREIGN KEY (idTopic) REFERENCES Topic(id),
+    FOREIGN KEY (idUser) REFERENCES User(id)
+);
+
+CREATE TABLE LogTopic (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idTopic INT,
+    idUser INT,
+    dateNewTopic DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (idTopic) REFERENCES Topic(id),
+    FOREIGN KEY (idUser) REFERENCES User(id)
+);

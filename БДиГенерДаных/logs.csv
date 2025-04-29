@@ -1,0 +1,10 @@
+id_user,action,timestamp
+user_3,create_topic,2025-04-29 16:52:03
+user_4,create_topic,2025-04-29 16:52:03
+user_3,create_topic,2025-04-29 16:52:03
+user_4,create_topic,2025-04-29 16:52:03
+guest,send_message,2025-04-29 16:52:03
+user_5,send_message,2025-04-29 16:52:03
+user_3,send_message,2025-04-29 16:52:03
+user_2,send_message,2025-04-29 16:52:03
+guest,send_message,2025-04-29 16:52:03
