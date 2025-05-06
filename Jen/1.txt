@@ -1,0 +1,69 @@
+pipeline {
+    agent any
+
+    environment {
+        DB_HOST = 'localhost'
+        DB_PORT = '3306'
+        DB_USER = 'root'
+        DB_NAME = 'mydatabase'
+        OUTPUT_CSV = 'result.csv'
+    }
+
+    stages {
+        stage('Verify Setup') {
+            steps {
+                script {
+                    // Используем новый ID credentials
+                    withCredentials([string(credentialsId: 'MYSQL_DB_PASS', variable: 'DB_PASS')]) {
+                        echo "Credentials successfully loaded"
+                        
+                        // Тест подключения к MySQL
+                        def testResult = sh(
+                            script: """
+                                mysql -h ${env.DB_HOST} -P ${env.DB_PORT} -u ${env.DB_USER} -p"${DB_PASS}" -e "SHOW DATABASES;" 2>&1 | grep -v "Using a password"
+                            """,
+                            returnStdout: true
+                        )
+                        
+                        if (testResult?.trim()) {
+                            echo "MySQL connection successful"
+                        } else {
+                            error("MySQL connection failed")
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Extract Data') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'MYSQL_DB_PASS', variable: 'DB_PASS')]) {
+                        def period = input(
+                            message: 'Введите период (YYYY-MM-DD:YYYY-MM-DD)',
+                            parameters: [string(defaultValue: '2023-01-01:2023-01-31', name: 'period')]
+                        )
+                        def (startDate, endDate) = period.split(':').collect { it.trim() }
+
+                        sh """
+                            mysql -h ${env.DB_HOST} -P ${env.DB_PORT} -u ${env.DB_USER} -p"${DB_PASS}" ${env.DB_NAME} -e "
+                                SELECT * FROM houses 
+                                WHERE date BETWEEN '${startDate}' AND '${endDate}'
+                            " > raw_data.tsv
+                            
+                            sed -e 's/\\t/,/g' raw_data.tsv > temp_data.csv
+                        """
+                    }
+                }
+            }
+        }
+
+        // ... остальные stages без изменений ...
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
